@@ -1,5 +1,5 @@
 var styles = {
-	"ps1" : {
+	"ps1_DEBUG2" : {
 		replaces : {
 			'А' : 'A',
 			'Б' : '6',
@@ -38,14 +38,14 @@ var styles = {
 		getWastified : function(s) {
 			var ans = "";
 			var rep = this.replaces;
-			var englishRegexp = /\[a-z]/;
+			var englishRegexp = /[a-z]/;
 			for (var i = 0; i < s.length; i++) {
 				var c = s[i];
-				if(c.search(englishRegexp) !== -1){
-					cupperC = c.toUpperCase();
+				if(!englishRegexp.test(c)){
+					c = c.toUpperCase();
 				}
 				if (rep[c] === null || rep[c] === undefined) {
-					ans += s[i];
+					ans += c;
 				} else {
 					ans += rep[c];
 				}
@@ -88,16 +88,15 @@ var styles = {
 		getWastified : function(s) {
 			var ans = "";
 			var rep = this.replaces;
-			var englishRegexp = /\[a-z]/;
+			var englishRegexp = /[a-z]/;
 			for (var i = 0; i < s.length; i++) {
 				c = s[i];
-				var sres = c.search(englishRegexp);
-				console.log("regex " + sres);
-				if(c.search(englishRegexp) !== -1) {
+				console.log(englishRegexp.test(c) + " " + c);
+				if(!englishRegexp.test(c)) {
 					c = c.toUpperCase();
 				}
 				if (rep[c] === null || rep[c] === undefined) {
-					ans += s[i];
+					ans += c;
 				} else {
 					ans += rep[c];
 				}
