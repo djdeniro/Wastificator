@@ -64,6 +64,7 @@ var wastificationStyles = {
 			var rep = this.replaces;
 			for (var i = 0; i < s.length; i++) {
 				var c = s[i];
+			
 				var upperC = c.toUpperCase();
 				if (rep[upperC] === null || rep[upperC] === undefined) {
 					ans += c;
@@ -109,8 +110,14 @@ var wastificationStyles = {
 		getWastified : function(s) {
 			var ans = "";
 			var rep = this.replaces;
+			var englishRegexp = /\[a-z]/;
 			for (var i = 0; i < s.length; i++) {
-				var c = s[i].toUpperCase();
+				c = s[i];
+				var sres = c.search(englishRegexp);
+				console.log("regex " + sres);
+				if(c.search(englishRegexp) !== -1) {
+					c = c.toUpperCase();
+				}
 				if (rep[c] === null || rep[c] === undefined) {
 					ans += c;
 				} else {

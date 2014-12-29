@@ -50,4 +50,4 @@ https://github.com/RecursivePie/Wastificator/raw/master/wastificator.user.js
 
 > Съешь еще этих аццких олбанских креведок, да выпей йаду в San Andreas.
 
->  СЬЕШЬ ЕШЕ 3ТИХ АЦЦКИХ ОЛБАНСКИХ КРЕВЕДОК, ДА ВЫПЕИ ИАДУ В ЫAN ANDЯEAЫ.
+>  СЬЕШЬ ЕШЕ 3ТИХ АЦЦКИХ ОЛБАНСКИХ КРЕВЕДОК, ДА ВЫПЕИ ИАДУ В Ыan Aandreas.
