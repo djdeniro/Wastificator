@@ -1,5 +1,5 @@
 var styles = {
-	"ps1_DEBUG2" : {
+	"ps1" : {
 		replaces : {
 			'А' : 'A',
 			'Б' : '6',
