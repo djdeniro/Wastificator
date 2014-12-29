@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name        Wastificator
 // @namespace   cr.u2m.wastificator
+// @require 	styles.js
 // @include     *
-// @version     1
+// @version     2
 // @grant       none
 //
 // @author      Ilgiz Mustaifn (ilgimustafin@gmail.com)
@@ -16,118 +17,6 @@ var state = {
 var elements = {
 	button : null,
 	contextMenu : null,
-}
-
-var consts = {
-	prefix : "wastifcator-"
-}
-
-var wastificationStyles = {
-	"ps1" : {
-		replaces : {
-			'А' : 'A',
-			'Б' : '6',
-			'В' : 'B',
-			'Г' : '7',
-			'Д' : 'D',
-			'Е' : 'E',
-			'Ё' : 'E',
-			'Ж' : 'X',
-			'З' : '3',
-			'И' : 'N',
-			'Й' : 'N',
-			'К' : 'K',
-			'Л' : 'JI',
-			'М' : 'M',
-			'Н' : 'H',
-			'О' : '0',
-			'П' : 'II',
-			'Р' : 'P',
-			'С' : 'C',
-			'Т' : 'T',
-			'У' : 'Y',
-			'Ф' : '9P',
-			'Х' : 'X',
-			'Ц' : 'U',
-			'Ч' : '4',
-			'Ш' : 'W',
-			'Щ' : 'W',
-			'Ь' : 'b',
-			'Ы' : 'bI',
-			'Ъ' : 'b',
-			'Э' : '3',
-			'Ю' : 'I0',
-			'Я' : '9'
-		},
-		getWastified : function(s) {
-			var ans = "";
-			var rep = this.replaces;
-			for (var i = 0; i < s.length; i++) {
-				var c = s[i];
-			
-				var upperC = c.toUpperCase();
-				if (rep[upperC] === null || rep[upperC] === undefined) {
-					ans += c;
-				} else {
-					ans += rep[upperC];
-				}
-			}
-			return ans;
-		}
-	},
-	"vc" : {
-		replaces : {
-			'м' : "m",
-			"п" : "n",
-			"и" : "u",
-			"й" : "u",
-			"д" : "g"
-		},
-		getWastified : function(s) {
-			var ans = "";
-			var rep = this.replaces;
-			for (var i = 0; i < s.length; i++) {
-				var c = s[i];
-				if (rep[c] === null || rep[c] === undefined) {
-					ans += c;
-				} else {
-					ans += rep[c];
-				}
-			}
-			return ans;
-		}
-	},
-	"sa_caps" : {
-		replaces : {
-			"Э" : "3",
-			"Щ" : "Ш",
-			"Ъ" : "Ь",
-			"S" : "Ы",
-			"R" : "Я",
-			"Ё" : "Е",
-			"Й" : "И"
-		},
-		getWastified : function(s) {
-			var ans = "";
-			var rep = this.replaces;
-			var englishRegexp = /\[a-z]/;
-			for (var i = 0; i < s.length; i++) {
-				c = s[i];
-				var sres = c.search(englishRegexp);
-				console.log("regex " + sres);
-				if(c.search(englishRegexp) !== -1) {
-					c = c.toUpperCase();
-				}
-				if (rep[c] === null || rep[c] === undefined) {
-					ans += c;
-				} else {
-					ans += rep[c];
-				}
-			}
-			return ans;
-		}
-	}
-
 }
 
 function attachToTextarea(ta) {
@@ -171,7 +60,7 @@ function getPos(ele) {
 }
 
 function wastifyTextarea(ta, styleName) {
-	var style = wastificationStyles[styleName];
+	var style = styles[styleName];
 	var val = "";
 	if (state.useVal) {
 		val = ta.value;
@@ -221,8 +110,6 @@ function closeContextMenu() {
 
 function init() {
 
-	state.activeStyle = "vc";
-
 	elements.button = document.createElement('button');
 	elements.button.innerHTML = "N";
 
@@ -236,7 +123,7 @@ function init() {
 	elements.contextMenu.style.padding = "0px";
 	elements.contextMenu.style.margin = "0px";
 	var styleList = document.createElement("ol");
-	for ( var prop in wastificationStyles) {
+	for ( var prop in styles) {
 		var entry = document.createElement("li");
 		var link = document.createElement("a");
 		link.style.cursor = "pointer";
