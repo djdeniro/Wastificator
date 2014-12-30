@@ -3,7 +3,7 @@
 // @namespace   cr.u2m.wastificator
 // @require 	styles.js
 // @include     *
-// @version     3
+// @version     3.2
 // @grant       none
 //
 // @author      Ilgiz Mustaifn (ilgimustafin@gmail.com)
@@ -98,9 +98,6 @@ function showContextMenu() {
 	elements.button.parentNode.insertBefore(elements.contextMenu,
 			elements.button.nextSibling);
 	var p = getPos(elements.button);
-	// elements.contextMenu.style.left = p[0] + "px";
-	// elements.contextMenu.style.top = p[1] + "px";
-	// elements.contextMenu.style.zIndex = 999; // TODO: h
 	elements.contextMenu.style.display = "block";
 }
 
@@ -117,7 +114,6 @@ function init() {
 
 	elements.contextMenu = document.createElement("div");
 	elements.contextMenu.style.border = "solid 1px red";
-	// elements.contextMenu.style.position = "absolute";
 	elements.contextMenu.style.display = "none";
 	elements.contextMenu.style.backgroundColor = "white";
 	elements.contextMenu.style.padding = "0px";
