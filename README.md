@@ -7,7 +7,7 @@
 
 Это скрипт Greasemonkey.
 
-https://github.com/RecursivePie/Wastificator/raw/master/wastificator.user.js
+https://github.com/imustafin/Wastificator/raw/master/wastificator.user.js
 
 * Если у вас *Chrom*e, *Chrom*ium и всякие похожие вещи, то поставьте плагин **Tampermonkey** 
 * Если у вас *Firefox*, то поставьте **Greasemonkey** 
