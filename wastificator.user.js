@@ -106,6 +106,7 @@ function closeContextMenu() {
 }
 
 function init() {
+	console.log("WASTIFICATOR IS STARTING...");	
 
 	elements.button = document.createElement('button');
 	elements.button.innerHTML = "N";
