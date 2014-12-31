@@ -83,7 +83,9 @@ var styles = {
 			"S" : "Ы",
 			"R" : "Я",
 			"Ё" : "Е",
-			"Й" : "И"
+			"Й" : "И",
+			"4" : "Ч",
+			"6" : "Б"	
 		},
 		getWastified : function(s) {
 			var ans = "";
