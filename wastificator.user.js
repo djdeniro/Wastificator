@@ -3,7 +3,7 @@
 // @namespace   cr.u2m.wastificator
 // @require 	styles.js
 // @include     *
-// @version     3.2.1
+// @version     3.2.2
 // @grant       none
 //
 // @author      Ilgiz Mustaifn (ilgimustafin@gmail.com)
