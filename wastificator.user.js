@@ -3,7 +3,7 @@
 // @namespace   cr.u2m.wastificator
 // @require 	styles.js
 // @include     *
-// @version     3.2
+// @version     3.2.1
 // @grant       none
 //
 // @author      Ilgiz Mustaifn (ilgimustafin@gmail.com)
@@ -15,6 +15,7 @@ var state = {
 }
 
 var elements = {
+	div : null,
 	button : null,
 	contextMenu : null,
 }
@@ -26,37 +27,17 @@ function attachToTextarea(ta) {
 	} else {
 		state.useVal = true;
 	}
-	ta.parentNode.insertBefore(elements.button, ta.nextSibling);
+	ta.parentNode.insertBefore(elements.div, ta.nextSibling);
 }
 
 function onAnyElementFocused(evt) {
 	var target = evt.srcElement || evt.originalTarget;
 	if (target
-			&& (target.nodeName.toUpperCase() == 'TEXTAREA' || (target.contentEditable === 'true'))) {
+			&& (target.nodeName.toUpperCase() == 'TEXTAREA' || target.contentEditable === 'true')) {
 		if (state.currentTextarea != target) {
 			attachToTextarea(target);
 		}
 	}
-}
-
-function onKeyPress(evt) {
-	if (state.currentTextarea && (evt.altKey && evt.key == 'w')) {
-	}
-}
-
-// http://stackoverflow.com/a/16752864/3818513
-function getPos(ele) {
-	var x = 0;
-	var y = 0;
-	while (true) {
-		x += ele.offsetLeft;
-		y += ele.offsetTop;
-		if (ele.offsetParent === null) {
-			break;
-		}
-		ele = ele.offsetParent;
-	}
-	return [ x, y ];
 }
 
 function wastifyTextarea(ta, styleName) {
@@ -75,10 +56,6 @@ function wastifyTextarea(ta, styleName) {
 	}
 }
 
-function initMenu(evt) {
-	var tg = evt.target;
-}
-
 function buttonClicked(evt) {
 	console.log(elements.contextMenu);
 	if (elements.contextMenu.style.display != "none") {
@@ -95,10 +72,7 @@ function styleClicked(evt) {
 }
 
 function showContextMenu() {
-	elements.button.parentNode.insertBefore(elements.contextMenu,
-			elements.button.nextSibling);
-	var p = getPos(elements.button);
-	elements.contextMenu.style.display = "block";
+	elements.contextMenu.style.display = "inline-block";
 }
 
 function closeContextMenu() {
@@ -106,13 +80,19 @@ function closeContextMenu() {
 }
 
 function init() {
-	console.log("WASTIFICATOR IS STARTING...");	
+	console.log("WASTIFICATOR IS STARTING...");
 
+	elements.div = document.createElement('div');
+	elements.div.style.display = "block";
+	console.log("yaya");
+	
 	elements.button = document.createElement('button');
-	elements.button.innerHTML = "N";
-
+	elements.button.innerHTML = "W";
 	elements.button.addEventListener("click", buttonClicked, true);
 
+	elements.div.appendChild(elements.button);
+	elements.div.appendChild(document.createElement("br"));
+	
 	elements.contextMenu = document.createElement("div");
 	elements.contextMenu.style.border = "solid 1px red";
 	elements.contextMenu.style.display = "none";
@@ -132,8 +112,11 @@ function init() {
 	}
 	elements.contextMenu.appendChild(styleList);
 
+	elements.div.appendChild(elements.contextMenu);
+	
 	document.addEventListener('focus', onAnyElementFocused, true);
-	window.addEventListener('keypress', onKeyPress, true);
+	
+	console.log("WASTIFICATOR INIT COMPLETE!");
 }
 
 init();
