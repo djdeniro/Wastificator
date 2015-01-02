@@ -5,14 +5,13 @@
 
 ## Установка
 
-Это скрипт Greasemonkey.
-
-https://raw.githubusercontent.com/imustafin/Wastificator/master/wastificator.user.js
-
+### Шаг первый:
 * Если у вас *Chrom*e, *Chrom*ium и всякие похожие вещи, то поставьте плагин **Tampermonkey** 
 * Если у вас *Firefox*, то поставьте **Greasemonkey** 
+* Если у вас *Opera*, то вам нужен **Violentmonkey**
 
-Сам скрипт же можно достать по ссылке выше
+### Шаг второй:
+Пройти по ссылке https://raw.githubusercontent.com/imustafin/Wastificator/master/wastificator.user.js
 
 Не забудьте перезагрузить страницу, а лучше и весь брузер, чтобы уж наверняка.
 
