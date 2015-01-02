@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Wastificator
 // @namespace   cr.u2m.wastificator
-// @require 	styles.js
+// @require 	https://raw.githubusercontent.com/imustafin/Wastificator/master/styles.js
 // @include     *
 // @version     3.2.2
 // @grant       none
